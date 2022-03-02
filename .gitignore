@@ -1,6 +1,12 @@
 # Nova text editor
 .nova/
 
+# fpcmake artefacts
+fpcmade.aarch64-darwin
+
+# Compiled binaries
+build/
+
 # Created by https://www.toptal.com/developers/gitignore/api/freepascal
 # Edit at https://www.toptal.com/developers/gitignore?templates=freepascal
 

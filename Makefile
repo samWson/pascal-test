@@ -335,6 +335,9 @@ ifeq ($(FULL_TARGET),aarch64-darwin)
 override TARGET_PROGRAMS+=PascalTest
 endif
 ifeq ($(FULL_TARGET),aarch64-darwin)
+override TARGET_UNITS+=PascalTest.Assertions
+endif
+ifeq ($(FULL_TARGET),aarch64-darwin)
 override CLEAN_UNITS+=PascalTest
 endif
 ifeq ($(FULL_TARGET),aarch64-darwin)
@@ -1206,6 +1209,15 @@ else
 EXECPPAS:=@$(PPAS)
 endif
 endif
+.PHONY: fpc_units
+ifneq ($(TARGET_UNITS)$(TARGET_IMPLICITUNITS),)
+override ALLTARGET+=fpc_units
+override UNITPPUFILES=$(addsuffix $(PPUEXT),$(TARGET_UNITS))
+override IMPLICITUNITPPUFILES=$(addsuffix $(PPUEXT),$(TARGET_IMPLICITUNITS))
+override INSTALLPPUFILES+=$(UNITPPUFILES) $(IMPLICITUNITPPUFILES)
+override CLEANPPUFILES+=$(UNITPPUFILES) $(IMPLICITUNITPPUFILES)
+endif
+fpc_units: $(COMPILER_UNITTARGETDIR) $(UNITPPUFILES)
 .PHONY: fpc_exes
 ifndef CROSSINSTALL
 ifneq ($(TARGET_PROGRAMS),)
