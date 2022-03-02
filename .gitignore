@@ -1,9 +1,6 @@
 # Nova text editor
 .nova/
 
-# fpcmake artefacts
-fpcmade.aarch64-darwin
-
 # Compiled binaries
 build/
 
