@@ -1,7 +1,7 @@
-program ExampleProgram;
+program ExampleTestSuite;
 
 uses
-  PascalTest.Assertions;
+  PascalTest;
 
 var
   actual : Integer;
@@ -16,7 +16,9 @@ begin
 
   actual := addTwo(10);
 
-  assertEqual(actual, 12);
+  assert(actual = 12);
+  specialize assertEqual<Integer>((10 + 2), 12);
+  specialize assertEqual<String>('a string', 'a string');
 
   Writeln('All assertions passed');
   Writeln('End')

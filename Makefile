@@ -1,17 +1,17 @@
 .PHONY: clean
 
-objects = ExampleProgram.o PascalTest.Assertions.o
-compiled_units = PascalTest.Assertions.ppu
-binaries = ExampleProgram
+objects = ExampleTestSuite.o PascalTest.o
+compiled_units = PascalTest.ppu
+binaries = ExampleTestSuite
 
 clean:
 	rm $(objects) $(compiled_units) $(binaries)
 
-examples: ExampleProgram
+examples: ExampleTestSuite
 
-ExampleProgram: ExampleProgram.pas PascalTest.Assertions.ppu
-	fpc ExampleProgram.pas
+ExampleTestSuite: ExampleTestSuite.pas PascalTest.ppu
+	fpc ExampleTestSuite.pas
 
-PascalTest.Assertions.ppu:
-	fpc PascalTest.Assertions.pas
+PascalTest.ppu:
+	fpc PascalTest.pas
 

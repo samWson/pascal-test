@@ -1,23 +1,27 @@
-program PascalTest;
+unit PascalTest;
 
-uses
-  PascalTest.Assertions;
+  {$LONGSTRINGS ON}
+  {$MODE OBJFPC}
 
-var
-  actual : Integer;
+interface
 
-function addTwo(value: Integer): Integer;
-begin
-  addTwo := value + 2;
-end;
+  procedure assert(test: boolean);
+  generic procedure assertEqual<T>(actual, expected: T);
 
-begin
-  actual := addTwo(10);
+implementation
 
-  assertEqual(actual, 12);
+  uses
+    sysutils;
 
-  assert('hello' = 'hell');
+  procedure assert(test: boolean);
+  begin
+    if not test then
+      raise Exception.create('Failed test');
+  end;
 
-  Writeln('All assertions passed')
+  generic procedure assertEqual<T>(actual, expected: T);
+  begin
+    assert(actual = expected);
+  end;
+
 end.
-
