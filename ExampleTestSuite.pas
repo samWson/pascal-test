@@ -1,7 +1,6 @@
 program ExampleTestSuite;
 
-uses
-  PascalTest;
+uses PascalTest;
 
 var
   actual : Integer;

@@ -10,8 +10,7 @@ interface
 
 implementation
 
-  uses
-    sysutils;
+  uses sysutils;
 
   procedure assert(test: boolean);
   begin
