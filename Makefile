@@ -12,6 +12,6 @@ examples: ExampleTestSuite
 ExampleTestSuite: ExampleTestSuite.pas PascalTest.ppu
 	fpc ExampleTestSuite.pas
 
-PascalTest.ppu:
+PascalTest.ppu: PascalTest.pas
 	fpc PascalTest.pas
 

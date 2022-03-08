@@ -16,8 +16,8 @@ begin
   actual := addTwo(10);
 
   assert(actual = 12);
-  specialize assertEqual<Integer>((10 + 2), 12);
-  specialize assertEqual<String>('a string', 'a string');
+  assertEqual((10 + 2), 12);
+  assertEqual('a' + ' string', 'a string');
 
   Writeln('All assertions passed');
   Writeln('End')
