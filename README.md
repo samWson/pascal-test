@@ -1,6 +1,6 @@
 # Pascal Test
 
-A unit testing framework for the Pascal programming language.
+A unit testing framework for the Object Pascal programming language.
 
 ## License
 
