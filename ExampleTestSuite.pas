@@ -2,14 +2,6 @@ program ExampleTestSuite;
 
 uses PascalTest;
 
-var
-  actual : Integer;
-
-function addTwo(value: Integer): Integer;
-begin
-  addTwo := value + 2;
-end;
-
 procedure basicAssert();
 begin
   assert(10 = 10);
@@ -32,10 +24,6 @@ end;
 
 begin
   Writeln('Begin');
-
-  actual := addTwo(10);
-
-  assert(actual = 12);
 
   test('asserting a boolean', @basicAssert);
 
