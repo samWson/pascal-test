@@ -18,6 +18,7 @@ begin
   assert(actual = 12);
   assertEqual((10 + 2), 12);
   assertEqual('a' + ' string', 'a string');
+  assertInDelta(1.0, 1.0);
 
   Writeln('All assertions passed');
   Writeln('End')
