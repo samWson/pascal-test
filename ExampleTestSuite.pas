@@ -22,8 +22,41 @@ begin
   assertInDelta(1.0, 1.0);
 end;
 
+procedure firstTest();
+var
+  a: integer;
+begin
+  a := 1;
+  assertEqual(1 , a)
+end;
+
+procedure secondTest();
+var
+  a: integer;
+begin
+  a := 1;
+  a := a + 1;
+
+  assertEqual(2 , a)
+end;
+
+procedure thirdTest();
+var
+  a: integer;
+begin
+  a := 1;
+
+  assertEqual(1 , a);
+end;
+
 begin
   Writeln('Begin');
+
+  test('first test', @firstTest);
+
+  test('second test', @secondTest);
+
+  test('third test', @thirdTest);
 
   test('asserting a boolean', @basicAssert);
 
