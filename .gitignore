@@ -2,7 +2,7 @@
 .nova/
 
 # Compiled binaries
-ExampleTestSuite
+TestProgram
 
 # Created by https://www.toptal.com/developers/gitignore/api/freepascal
 # Edit at https://www.toptal.com/developers/gitignore?templates=freepascal
