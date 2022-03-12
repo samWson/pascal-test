@@ -52,19 +52,13 @@ end;
 begin
   Writeln('Begin');
 
-  test('first test', @firstTest);
-
-  test('second test', @secondTest);
-
-  test('third test', @thirdTest);
-
-  test('asserting a boolean', @basicAssert);
-
-  test('asserting integer maths', @assertEqualIntegers);
-
-  test('strings are identical', @assertEqualStrings);
-
-  test('floats are close enough', @assertInDeltaFloats);
+  firstTest();
+  secondTest();
+  thirdTest();
+  basicAssert();
+  assertEqualIntegers();
+  assertEqualStrings();
+  assertInDeltaFloats();
 
   Writeln('All assertions passed');
   Writeln('End')

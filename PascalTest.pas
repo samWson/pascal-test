@@ -5,14 +5,10 @@ unit PascalTest;
 
 interface
 
-  type
-    TTestProc = procedure;
-
   procedure assert(test: boolean; message: string = 'Failed Test');
   procedure assertEqual(actual, expected: integer);
   procedure assertEqual(actual, expected: string);
   procedure assertInDelta(actual, expected: real);
-  procedure test(name: string; body: TTestProc);
 
 implementation
 
@@ -40,11 +36,6 @@ implementation
   begin
     absolute := abs(actual - expected);
     assert(absolute < 0.001, format('Failed assertInDelta %f vs %f', [actual, expected]))
-  end;
-
-  procedure test(name: string; body: TTestProc);
-  begin
-    body()
   end;
 
 end.
