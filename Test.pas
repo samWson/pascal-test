@@ -9,6 +9,9 @@ interface
 
   type
     TTest = class
+    public
+      procedure run(name: string);
+    private
       procedure basicAssert(var _msg); message 'basicAssert';
       procedure assertEqualIntegers(var _msg); message 'assertEqualIntegers';
       procedure assertEqualStrings(var _msg); message 'assertEqualStrings';
@@ -19,6 +22,11 @@ interface
     end;
 
 implementation
+
+  procedure TTest.run(name: string);
+  begin
+    self.dispatchStr(name)
+  end;
 
   procedure TTest.basicAssert(var _msg);
   begin

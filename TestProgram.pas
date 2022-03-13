@@ -2,38 +2,16 @@ program TestProgram;
 
 uses Test;
 
-var
-  firstTest: string;
-  secondTest: string;
-  thirdTest: string;
-  basicAssert: string;
-  assertEqualIntegers: string;
-  assertEqualStrings: string;
-  assertInDeltaFloats: string;
-
 begin
   Writeln('Begin');
 
-  firstTest := 'firstTest';
-  TTest.create().dispatchStr(firstTest);
-
-  secondTest := 'secondTest';
-  TTest.create().dispatchStr(secondTest);
-
-  thirdTest := 'thirdTest';
-  TTest.create().dispatchStr(thirdTest);
-
-  basicAssert := 'basicAssert';
-  TTest.create().dispatchStr(basicAssert);
-
-  assertEqualIntegers := 'assertEqualIntegers';
-  TTest.create().dispatchStr(assertEqualIntegers);
-
-  assertEqualStrings := 'assertEqualStrings';
-  TTest.create().dispatchStr(assertEqualStrings);
-
-  assertInDeltaFloats := 'assertInDeltaFloats';
-  TTest.create().dispatchStr(assertInDeltaFloats);
+  TTest.create().run('firstTest');
+  TTest.create().run('secondTest');
+  TTest.create().run('thirdTest');
+  TTest.create().run('basicAssert');
+  TTest.create().run('assertEqualIntegers');
+  TTest.create().run('assertEqualStrings');
+  TTest.create().run('assertInDeltaFloats');
 
   Writeln('All assertions passed');
   Writeln('End')
