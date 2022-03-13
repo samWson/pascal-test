@@ -9,6 +9,6 @@ clean:
 
 examples: TestProgram
 
-TestProgram: TestProgram.pas
+TestProgram: TestProgram.pas Test.pas
 	fpc TestProgram.pas
 
