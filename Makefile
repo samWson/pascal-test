@@ -1,7 +1,7 @@
 .PHONY: clean
 
-objects = TestProgram.o PascalTest.o
-compiled_units = PascalTest.ppu
+objects = TestProgram.o PascalTest.o Test.o
+compiled_units = PascalTest.ppu Test.ppu
 binaries = TestProgram
 
 clean:
@@ -9,9 +9,6 @@ clean:
 
 examples: TestProgram
 
-TestProgram: TestProgram.pas PascalTest.ppu
+TestProgram: TestProgram.pas
 	fpc TestProgram.pas
-
-PascalTest.ppu: PascalTest.pas
-	fpc PascalTest.pas
 
