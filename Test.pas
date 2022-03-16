@@ -5,11 +5,12 @@ unit Test;
 
 interface
 
-  uses PascalTest;
+  uses PascalTest, SysUtils;
 
   type
     TTest = class
     public
+      class procedure run();
       procedure run(name: string);
     private
       procedure basicAssert(var _msg); message 'basicAssert';
@@ -19,9 +20,30 @@ interface
       procedure firstTest(var _msg); message 'firstTest';
       procedure secondTest(var _msg); message 'secondTest';
       procedure thirdTest(var _msg); message 'thirdTest';
-    end;
+      end;
+
+  var
+    tests: Array of string;
 
 implementation
+
+  class procedure TTest.run();
+  var
+    testCase: TTest;
+    test: string;
+  begin
+    for test in tests do
+    begin
+      testCase := nil;
+
+      try
+        testCase := TTest.create();
+        testCase.run(test)
+      finally
+        FreeAndNil(testCase)
+      end
+    end
+  end;
 
   procedure TTest.run(name: string);
   begin
@@ -80,6 +102,19 @@ implementation
     a := 1;
 
     assertEqual(1 , a);
+  end;
+
+initialization
+  begin
+    tests := [
+      'firstTest',
+      'secondTest',
+      'thirdTest',
+      'basicAssert',
+      'assertEqualIntegers',
+      'assertEqualStrings',
+      'assertInDeltaFloats'
+    ]
   end;
 
 end.
