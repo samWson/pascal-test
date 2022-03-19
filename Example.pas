@@ -5,7 +5,7 @@ unit Example;
 
 interface
 
-  uses PascalTest, SysUtils;
+  uses PascalTest;
 
   type
     TExampleTest = class(TTestCase)
