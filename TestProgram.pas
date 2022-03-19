@@ -1,11 +1,11 @@
 program TestProgram;
 
-uses Test;
+uses Example;
 
 begin
   Writeln('Begin');
 
-  TTest.run();
+  TExampleTest.run();
 
   Writeln('All assertions passed');
   Writeln('End')

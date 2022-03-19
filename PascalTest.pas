@@ -5,6 +5,15 @@ unit PascalTest;
 
 interface
 
+  type
+    TRunnableTests = array of string;
+
+    TTestCase = class
+      class procedure run();
+      class function tests(): TRunnableTests; virtual;
+      procedure run(name: string);
+    end;
+
   procedure assert(test: boolean; message: string = 'Failed Test');
   procedure assertEqual(actual, expected: integer);
   procedure assertEqual(actual, expected: string);
@@ -13,6 +22,34 @@ interface
 implementation
 
   uses sysutils;
+
+  class procedure TTestCase.run();
+  var
+    testCase: TTestCase;
+    test: string;
+  begin
+    for test in tests() do
+    begin
+      testCase := nil;
+
+      try
+        testCase := self.create();
+        testCase.run(test)
+      finally
+        FreeAndNil(testCase)
+      end
+    end
+  end;
+
+  class function TTestCase.tests(): TRunnableTests;
+  begin
+    tests := []
+  end;
+
+  procedure TTestCase.run(name: string);
+  begin
+    self.dispatchStr(name)
+  end;
 
   procedure assert(test: boolean; message: string = 'Failed Test');
   begin
