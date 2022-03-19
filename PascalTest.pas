@@ -12,12 +12,11 @@ interface
       class procedure run();
       class function tests(): TRunnableTests; virtual;
       procedure run(name: string);
+      procedure assert(test: boolean; message: string = 'Failed Test');
+      procedure assertEqual(actual, expected: integer);
+      procedure assertEqual(actual, expected: string);
+      procedure assertInDelta(actual, expected: real);
     end;
-
-  procedure assert(test: boolean; message: string = 'Failed Test');
-  procedure assertEqual(actual, expected: integer);
-  procedure assertEqual(actual, expected: string);
-  procedure assertInDelta(actual, expected: real);
 
 implementation
 
@@ -51,23 +50,23 @@ implementation
     self.dispatchStr(name)
   end;
 
-  procedure assert(test: boolean; message: string = 'Failed Test');
+  procedure TTestCase.assert(test: boolean; message: string = 'Failed Test');
   begin
     if not test then
       raise Exception.create(message);
   end;
 
-  procedure assertEqual(actual, expected: integer);
+  procedure TTestCase.assertEqual(actual, expected: integer);
   begin
     assert(actual = expected, format('Failed assertEqual %d vs %d', [actual, expected]))
   end;
 
-  procedure assertEqual(actual, expected: string);
+  procedure TTestCase.assertEqual(actual, expected: string);
   begin
     assert(actual = expected, format('Failed assertEqual %s vs %s', [actual, expected]))
   end;
 
-  procedure assertInDelta(actual, expected: real);
+  procedure TTestCase.assertInDelta(actual, expected: real);
   var
     absolute: real;
   begin
