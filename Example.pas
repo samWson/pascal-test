@@ -3,11 +3,22 @@ unit Example;
   {$LONGSTRINGS ON}
   {$MODE OBJFPC}
 
+// REVIEW:
+// Instead of having PascalTest try to find all of its decendants, create hooks
+// that test cases can provide callbacks for
+// e.g. PascalTest has a 'run tests' procedure. When PascalTest is run this
+// procedure is called.
+// unit tests are written as usual, just normal procedures. The test case 
+// provides pointers to the test procedures as an array of callbacks for the
+// 'run tests' procedure to run.
+
 interface
 
   uses PascalTest;
 
   type
+    // runner = procedure();
+
     TExampleTest = class(TTestCase)
       class function tests(): TRunnableTests; override;
       procedure basicAssert(var _msg); message 'basicAssert';
@@ -18,6 +29,8 @@ interface
       procedure secondTest(var _msg); message 'secondTest';
       procedure thirdTest(var _msg); message 'thirdTest';
     end;
+
+    // procedure register();
 
 implementation
 
@@ -87,5 +100,20 @@ implementation
 
     assertEqual(1 , a);
   end;
+
+  // procedure register();
+  // var
+  //   callback: runner;
+  // begin
+  //   callback := @TExampleTest.run();
+  //   TExampleTest.registerTestCase(callback)
+  // end;
+
+  initialization
+    begin
+      Writeln('Example.pas initialization');
+      TExampleTest.registerTestCase(@TExampleTest.run)
+      // register()
+    end;
 
 end.

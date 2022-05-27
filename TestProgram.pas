@@ -1,11 +1,12 @@
 program TestProgram;
 
-uses Example;
+uses PascalTest, Example;
 
 begin
-  Writeln('Begin');
+  Writeln('Begin TestProgram');
 
-  TExampleTest.run();
+  // TExampleTest.run();
+  TTestCase.runAllTests();
 
   Writeln('All assertions passed');
   Writeln('End')
