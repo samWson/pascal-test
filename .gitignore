@@ -1,3 +1,6 @@
+# Sublime text editor
+*.sublime*
+
 # Nova text editor
 .nova/
 
