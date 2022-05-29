@@ -5,7 +5,7 @@
 .nova/
 
 # Compiled binaries
-TestProgram
+TestRunner
 
 # Compiled resource files
 *.res
