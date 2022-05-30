@@ -7,15 +7,15 @@ program TestRunner;
   {$LONGSTRINGS ON}
   {$MODE OBJFPC}
 
-uses ExampleTestCase;
+uses LibTest;
 
 begin
   Writeln('Begin TestRunner');
   Writeln();
 
-  // Running all of the ExampleTestCase unit tests. If we were testing more than
+  // Running all of the LibTest unit tests. If we were testing more than
   // one unit then we would have to qualify with the unit name to avoid 
-  // conflicts e.g. ExampleTestCase.run();
+  // conflicts e.g. LibTest.run();
   run();
 
   Writeln();
