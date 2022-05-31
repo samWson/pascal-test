@@ -10,6 +10,6 @@ clean:
 test: TestRunner
 	./TestRunner
 
-TestRunner: TestRunner.pas LibTest.pas PascalTest.pas
+TestRunner: TestRunner.pas Lib.pas LibTest.pas PascalTest.pas
 	fpc TestRunner.pas
 
