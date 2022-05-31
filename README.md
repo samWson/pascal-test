@@ -19,12 +19,17 @@ tests a discrete unit of code.
 - `assertInDelta()` for floating point (real) numbers
 
 Assuming you have unit of code that requires testing e.g. `Lib.pas` your tests
-will be placed in another unit e.g. `LibTest.pas`. Write procedures using 
-assertions, prefixing the procedure names with `test`. Write another procedure
-called `run()` that calls each unit-test in the unit:
+will be placed in another unit e.g. `LibTest.pas`. Add the `Lib` and `PascalTest`
+units to the `uses` clause. Write procedures using assertions, prefixing the
+procedure names with `test`. Write another procedure called `run()` that calls
+each unit-test in the unit:
 
 ```pascal
 unit LibTest;
+
+interface
+
+  uses Lib, PascalTest;
 ...
 implementation
 
