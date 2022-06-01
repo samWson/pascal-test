@@ -7,9 +7,10 @@ program TestRunner;
   {$LONGSTRINGS ON}
   {$MODE OBJFPC}
 
-uses LibTest;
+uses LibTest, PascalTest, SysUtils;
 
 begin
+  Writeln(format('Pascal Test version: %s', [PascalTest.version]));
   Writeln('Begin TestRunner');
   Writeln();
 

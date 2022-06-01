@@ -10,6 +10,9 @@ interface
   procedure assertEqual(actual, expected: string);
   procedure assertInDelta(actual, expected: real);
 
+  const
+    version = '0.1.0';
+
 implementation
 
   uses SysUtils;
